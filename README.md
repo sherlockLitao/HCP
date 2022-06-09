@@ -129,10 +129,10 @@ What's more, we provide videos and figures in folder simu_flow/saved_results_flo
 
 This toolbox has been created and is maintained by
 
-* [Tao Li](https://github.com/sherlockLitao) (2019000153lt@ruc.edu.cn)
-* [Cheng Meng](https://github.com/ChengzijunAixiaoli) (chengmeng@ruc.edu.cn)
-* Jun Yu (yujunbeta@bit.edu.cn)
-* [Hongteng Xu](https://github.com/HongtengXu) (hongtengxu@ruc.edu.cn)
+* [Tao Li](https://github.com/sherlockLitao)
+* [Cheng Meng](https://github.com/ChengzijunAixiaoli)
+* Jun Yu
+* [Hongteng Xu](https://github.com/HongtengXu)
 
 
 # Reference
