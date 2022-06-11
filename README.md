@@ -124,6 +124,17 @@ All *.ipynb files provide figures.
 
 What's more, we provide videos and figures in folder simu_flow/saved_results_flows/
 
+Color Transfer based on HCP and SW:
+
+![image](https://github.com/sherlockLitao/HCP/blob/main/color_transfer/Results/color1.png)
+
+We find HCP based color transfer is faster than SW based:
+
+![image](https://github.com/sherlockLitao/HCP/blob/main/color_transfer/Results/color2.png)
+
+![image](https://github.com/sherlockLitao/HCP/blob/main/color_transfer/Results/color3.png)
+
+
 
 # Authors
 
@@ -145,3 +156,5 @@ This toolbox has been created and is maintained by
 [https://www.kaggle.com/code/balraj98/pointnet-for-3d-object-classification-pytorch]
 
 [https://github.com/pierrejacob/winference]
+
+[https://github.com/iamalexkorotin/Wasserstein2Barycenters]
