@@ -128,7 +128,7 @@ Color Transfer based on HCP and SW:
 
 ![image](https://github.com/sherlockLitao/HCP/blob/main/color_transfer/Results/color1.png)
 
-We find HCP based color transfer is faster than SW based:
+We show the results of several iterations:
 
 ![image](https://github.com/sherlockLitao/HCP/blob/main/color_transfer/Results/color2.png)
 
