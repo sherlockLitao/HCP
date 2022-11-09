@@ -32,9 +32,9 @@ class GSW():
         if self.ftype=='HCP':
 
             Xh = X.detach().cpu().numpy()
-            Xr = base.hilbert_order(Xh.T)
+            Xr = base.hilbert_order(Xh)
             Yh = Y.detach().cpu().numpy()
-            Yr = base.hilbert_order(Yh.T)
+            Yr = base.hilbert_order(Yh)
          
             return torch.pow(2*torch.mean((X[Xr,:]-Y[Yr,:])**p),1/p)
 

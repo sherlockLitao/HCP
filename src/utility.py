@@ -21,7 +21,7 @@ def trans(X, k):
     return Xs
 
 ## equal weights HCP
-def HCP(X, Y, hc='Hm', k=3):
+def HCP(X, Y, hc='Hm', k=5):
 
     """
     Implement Hilbert curve projection distance (p=2) for equal sample size and equal weights
@@ -30,7 +30,7 @@ def HCP(X, Y, hc='Hm', k=3):
     ----------
         X : array-like, shape (n, d), samples in the source domain
         Y : array-like, shape (n, d), samples in the target domain
-        hc : string, impementation of the Hilbert curve, either 'Hm' or 'Hk'. 'Hm' is based on C++ library CGAL, and 'Hk' is based on python package hilbertcurve. For large n, Hm is recommended.
+        hc : string, impementation of the Hilbert curve, either 'Hm' or 'Hk'. 'Hm' is based on recursive sort, and 'Hk' is based on Hilbert indices. For large n, Hm is recommended.
         k : int, order of Hilbert curve when hc='Hk'
 
     Returns
@@ -44,9 +44,11 @@ def HCP(X, Y, hc='Hm', k=3):
         "Hilbert curve should only be Hm or Hk"
 
     if hc=='Hm':
-        Xr = base.hilbert_order(X.T)
-        Yr = base.hilbert_order(Y.T)
+        # recursive sort
+        Xr = base.hilbert_order(X)
+        Yr = base.hilbert_order(Y)
     else:
+        # Hilbert indices based sort
         p=k
         hilbert_curve = HilbertCurve(p, d)
 
@@ -96,7 +98,7 @@ def gHCP(X, Y, a, b, is_plan=False, hc='Hm', k=3):
         a : array-like, shape (n), samples weights in the source domain
         b : array-like, shape (m), samples weights in the target domain
         is_plan : bool, True return transport plan, False return HCP distance
-        hc : string, impementation of the Hilbert curve, either 'Hm' or 'Hk'. 'Hm' is based on C++ library CGAL, and 'Hk' is based on python package hilbertcurve.
+        hc : string, impementation of the Hilbert curve, either 'Hm' or 'Hk'. 'Hm' is based on recursive sort, and 'Hk' is based on Hilbert indices. For large n, Hm is recommended.
         k : int, order of Hilbert curve when hc='Hk'
 
     Returns
@@ -110,8 +112,8 @@ def gHCP(X, Y, a, b, is_plan=False, hc='Hm', k=3):
         "Hilbert curve should only be Hm or Hk"
 
     if hc=='Hm':
-        Xr = base.hilbert_order(X.T)
-        Yr = base.hilbert_order(Y.T)
+        Xr = base.hilbert_order(X)
+        Yr = base.hilbert_order(Y)
     else:
         p=k
         hilbert_curve = HilbertCurve(p, d)
@@ -290,14 +292,14 @@ def PRHCP(X, Y, q=2, niter=10):
 
     while i<niter:
         if i==0:
-            Xr = base.hilbert_order(X.T)
-            Yr = base.hilbert_order(Y.T)
+            Xr = base.hilbert_order(X)
+            Yr = base.hilbert_order(Y)
             delta = X[Xr,:]-Y[Yr,:]
         else:
             Xu = X@U
             Yu = Y@U
-            Xr = base.hilbert_order(Xu.T)
-            Yr = base.hilbert_order(Yu.T)
+            Xr = base.hilbert_order(Xu)
+            Yr = base.hilbert_order(Yu)
             delta = X[Xr,:]-Y[Yr,:]
         
         disp = np.concatenate([delta, -delta])    

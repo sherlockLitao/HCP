@@ -22,14 +22,14 @@ def PRHCP(X, Y, q=2, niter=5):
 
     while i<niter:
         if i==0:
-            Xr = base.hilbert_order(X.T)
-            Yr = base.hilbert_order(Y.T)
+            Xr = base.hilbert_order(X)
+            Yr = base.hilbert_order(Y)
             delta = X[Xr,:]-Y[Yr,:]
         else:
             Xu = X@U
             Yu = Y@U
-            Xr = base.hilbert_order(Xu.T)
-            Yr = base.hilbert_order(Yu.T)
+            Xr = base.hilbert_order(Xu)
+            Yr = base.hilbert_order(Yu)
             delta = X[Xr,:]-Y[Yr,:]
         
         disp = np.concatenate([delta, -delta])    
@@ -62,8 +62,8 @@ def prhcp_distance(encoded_samples, p=2, device='cpu'):
     distribution_projections = distribution_samples.matmul(projections)
 
 
-    A = base.hilbert_order((X@proj).T)
-    B = base.hilbert_order((Y@proj).T)
+    A = base.hilbert_order((X@proj))
+    B = base.hilbert_order((Y@proj))
 
     hilbert_distance = encoded_projections[A,:] - distribution_projections[B,:]
     hilbert_distance = torch.pow(hilbert_distance, p)

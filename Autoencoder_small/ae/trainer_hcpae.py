@@ -21,10 +21,10 @@ def _hcp_distance(encoded_samples, distribution_samples, p=2, device='cpu'):
     """
     embedding_dim = distribution_samples.size(1)
     A = encoded_samples.detach().cpu().numpy() #convert to Numpy array
-    A1 = base.hilbert_order(A.T)
+    A1 = base.hilbert_order(A)
 
     B = distribution_samples.detach().cpu().numpy() #convert to Numpy array
-    B1 = base.hilbert_order(B.T)
+    B1 = base.hilbert_order(B)
 
     hcp_distance = encoded_samples[A1,:] - distribution_samples[B1,:]
     hcp_distance = torch.pow(hcp_distance, p)

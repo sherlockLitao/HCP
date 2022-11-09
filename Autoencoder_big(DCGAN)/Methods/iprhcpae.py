@@ -42,8 +42,8 @@ def iprhcp_distance(encoded_samples, num_projections=50, p=2, device='cpu'):
 
     # start: i=0
     i = 0
-    A1 = base.hilbert_order(A[:,(2*i):(2*i+2)].T)
-    B1 = base.hilbert_order(B[:,(2*i):(2*i+2)].T)
+    A1 = base.hilbert_order(A[:,(2*i):(2*i+2)])
+    B1 = base.hilbert_order(B[:,(2*i):(2*i+2)])
 
     hilbert_distance = encoded_projections[A1,(2*i):(2*i+2)] - distribution_projections[B1,(2*i):(2*i+2)]
     hilbert_distance = torch.pow(hilbert_distance, p)
@@ -52,8 +52,8 @@ def iprhcp_distance(encoded_samples, num_projections=50, p=2, device='cpu'):
     # for i>0
     for i in range(1,num_projections):
     
-        A1 = base.hilbert_order(A[:,(2*i):(2*i+2)].T)
-        B1 = base.hilbert_order(B[:,(2*i):(2*i+2)].T)
+        A1 = base.hilbert_order(A[:,(2*i):(2*i+2)])
+        B1 = base.hilbert_order(B[:,(2*i):(2*i+2)])
 
         hilbert_distance = encoded_projections[A1,(2*i):(2*i+2)] - distribution_projections[B1,(2*i):(2*i+2)]
         hilbert_distance = torch.pow(hilbert_distance, p)
