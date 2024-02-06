@@ -139,10 +139,12 @@ def gHCP(X, Y, a, b, is_plan=False, hc='Hm', k=3):
 
     else:
         GI = general_plan(aa,bb)
-        res = 0
+        # res = 0
 
-        for i in range(GI.shape[0]):
-            res+=np.sum((X[Xr[int(GI[i,1])],:]-Y[Yr[int(GI[i,2])],:])**2)*GI[i,0]
+        # for i in range(GI.shape[0]):
+        #     res+=np.sum((X[Xr[int(GI[i,1])],:]-Y[Yr[int(GI[i,2])],:])**2)*GI[i,0]
+        res = np.sum((X[Xr[GI[:, 1].astype(int)], :] - Y[Yr[GI[:, 2].astype(int)], :])**2 * GI[:, [0]])
+
         return np.sqrt(res)
 
 
