@@ -6,11 +6,12 @@ Feel free to ask if any question.
 
 If you use this toolbox in your research and find it useful, please cite:
 ```
-@article{li2022hilbert,
-  title={Hilbert Curve Projection Distance for Distribution Comparison},
-  author={Li, Tao and Meng, Cheng and Yu, Jun and Xu, Hongteng},
-  journal={arXiv preprint arXiv:2205.15059},
-  year={2022}
+@article{li2024hilbert,
+  title={Hilbert curve projection distance for distribution comparison},
+  author={Li, Tao and Meng, Cheng and Xu, Hongteng and Yu, Jun},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2024},
+  publisher={IEEE}
 }
 ```
 
